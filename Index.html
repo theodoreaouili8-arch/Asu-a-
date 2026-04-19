@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoStream - Plateforme Moderne</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .video-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .loader { border-top-color: #3498db; animation: spinner 1.5s linear infinite; }
+        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+    <header class="bg-gray-800 shadow-lg p-6 mb-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-400">🎥 VideoStream</h1>
+            <nav class="hidden md:block">
+                <span class="text-gray-400">Propulsé par API DavidCyril</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4">
+        <div id="loader" class="flex flex-col items-center justify-center py-20">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-700 h-12 w-12 mb-4"></div>
+            <p>Chargement des dernières vidéos...</p>
+        </div>
+
+        <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            </div>
+    </main>
+
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-lg max-w-4xl w-full overflow-hidden relative">
+            <button onclick="closePlayer()" class="absolute top-4 right-4 text-white text-2xl font-bold">&times;</button>
+            <div id="playerContainer" class="aspect-video w-full">
+                </div>
+            <div class="p-4">
+                <h2 id="modalTitle" class="text-xl font-bold mb-2"></h2>
+                <a id="modalDownload" href="#" download class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded inline-block">Télécharger</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-10 text-gray-500 border-t border-gray-800">
+        <p>&copy; 2026 - Déployé sur Vercel</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
